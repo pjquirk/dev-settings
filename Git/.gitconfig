@@ -1,0 +1,42 @@
+[user]
+	name = PJ Quirk
+	email = paquirk@microsoft.com
+[core]
+	autocrlf = true
+	preloadindex = true
+	fscache = true
+	editor = code --wait
+	excludesfile = C:\\Users\\paquirk\\.gitignore
+[push]
+	default = simple
+[alias]
+	diffui = difftool --no-prompt
+	diffdir = difftool --dir-diff --tool=winmerge
+	up = pull --rebase --prune
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --stat
+	update-pr = push --force-with-lease origin
+	create-pr = !git push -u origin HEAD && start https://dev.azure.com/mseng/_git/AzureDevOps/pullrequests?_a=mine
+	create-pr-github = !git push -u origin HEAD && start `git config --get remote.origin.url`
+	# what-changed = !@for /F "usebackq tokens=2* delims=: " %W in ^(`mode con ^| findstr Columns`^) do @set CONSOLE_WIDTH=%W && git diff --stat=%CONSOLE_WIDTH% master..
+	what-changed = diff --stat=170 master..
+[diff]
+	tool = vsdiffmerge
+[difftool]
+	prompt = true
+[merge]
+  	tool = tortoisemerge
+[mergetool]
+  	prompt = false
+  	keepBackup = false
+[difftool "tortoisediff"]
+  	cmd = \""C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe"\" -mine "$REMOTE" -base "$LOCAL" -basename "Base"
+[mergetool "tortoisemerge"]
+  	cmd = \""C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe"\" -base "$BASE" -theirs "$REMOTE" -mine "$LOCAL" -merged "$MERGED"
+
+[gui]
+	recentrepo = E:/Source/Github/vsts-tasks
+[credential]
+	helper = wincred
+[difftool "vsdiffmerge"]
+	cmd = \"C:\\Program Files (x86)\\Microsoft Visual Studio\\Preview\\Enterprise\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$LOCAL\" \"$REMOTE\" //t
+	keepBackup = false
