@@ -1,0 +1,12 @@
+{
+  "^\UF702" = moveWordBackward:;
+  "^\UF703" = moveWordForward:;
+  "\UF729" = moveToBeginningOfLine:;
+  "\UF72B" = moveToEndOfLine:;
+  "$\UF729" = moveToBeginningOfLineAndModifySelection:;
+  "$\UF72B" = moveToEndOfLineAndModifySelection:;
+  "^\UF729" = moveToBeginningOfDocument:; // ctrl-home
+  "^\UF72B" = moveToEndOfDocument:; // ctrl-end
+  "^$\UF729" = moveToBeginningOfDocumentAndModifySelection:; // ctrl-shift-home
+  "^$\UF72B" = moveToEndOfDocumentAndModifySelection:; // ctrl-shift-end
+}
