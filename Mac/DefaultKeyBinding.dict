@@ -1,12 +1,20 @@
+# ~/Library/KeyBindings/DefaultKeyBinding.dict
 {
-  "^\UF702" = moveWordBackward:;
-  "^\UF703" = moveWordForward:;
-  "\UF729" = moveToBeginningOfLine:;
-  "\UF72B" = moveToEndOfLine:;
-  "$\UF729" = moveToBeginningOfLineAndModifySelection:;
-  "$\UF72B" = moveToEndOfLineAndModifySelection:;
-  "^\UF729" = moveToBeginningOfDocument:; // ctrl-home
-  "^\UF72B" = moveToEndOfDocument:; // ctrl-end
-  "^$\UF729" = moveToBeginningOfDocumentAndModifySelection:; // ctrl-shift-home
-  "^$\UF72B" = moveToEndOfDocumentAndModifySelection:; // ctrl-shift-end
+  /* Remap Home / End keys to be correct */
+  "\UF729"   = "moveToBeginningOfLine:";                        /* Home */
+  "\UF72B"   = "moveToEndOfLine:";                              /* End */
+  "$\UF729"  = "moveToBeginningOfLineAndModifySelection:";      /* Shift + Home */
+  "$\UF72B"  = "moveToEndOfLineAndModifySelection:";            /* Shift + End */
+  "^\UF729"  = "moveToBeginningOfDocument:";                    /* Ctrl + Home */
+  "^\UF72B"  = "moveToEndOfDocument:";                          /* Ctrl + End */
+  "$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:";  /* Shift + Ctrl + Home */
+  "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:";        /* Shift + Ctrl + End */
+
+  /* Word left/right should use Ctrl */
+  "^\UF702"  = "moveWordBackward:";                            /* Ctrl + LeftArrow */
+  "^\U007F"  = "deleteWordBackward:";                          /* Ctrl + Backspace */
+  "^\UF703"  = "moveWordForward:";                             /* Ctrl + RightArrow */
+  "^\UF728"  = "deleteWordForward:";                           /* Ctrl + Delete */
+  "^$\UF702" = "moveWordBackwardAndModifySelection:";          /* Shift + Ctrl + Leftarrow */
+  "^$\UF703" = "moveWordForwardAndModifySelection:";           /* Shift + Ctrl + Rightarrow */\
 }
